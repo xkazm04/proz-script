@@ -17,7 +17,7 @@ async function getAndDecodeVestingLogs() {
         const response = await axios.get(vestingUrl);
         const logs = response.data.result;
         const iface = new ethers.Interface(vestingAbi);
-        const csvRows = [['Address', 'Amount', 'Release Time']];
+        const csvRows = [['Created','Address', 'Amount', 'Release Time']];
 
         logs.forEach(log => {
             const created = moment.unix(log.timeStamp).format('DD.MM.YYYY');
